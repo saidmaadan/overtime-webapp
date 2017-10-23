@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-1 col-sm-2">
+    <%= post.id %>
+  </div>
+  <div class="col-md-3 col-sm-4">
+    <%= post.date %>
+  </div>
+  <div class="col-md-8 col-sm-6">
+    <p><%= truncate(post.rationale, length: 80) %></p>
+    <small><%= post.user.full_name %></small>
+  </div>
+</div>
+<hr>
