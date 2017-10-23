@@ -5,8 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-100.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} Given HTML markup, this upgrade tool replaces the Bootstrap 3.x CSS classes with Bootstrap 4.x classes. Additionally, this tool updates the structure of components like Navbar, Panel, List and others in accordance with the Bootstrap 4 Docs. See the complete Bootstrap 4 Migration Guide for the latest changes.")
+@user = User.create(email: "test@example.com", password:
+                    "password", password_confirmation: "password",
+                    first_name: 'Said', last_name: 'Fola'
+                    )
+puts "One user created"
+
+20.times do |post|
+  Post.create!(date: Date.today, rationale: "#{post} Given HTML markup, this upgrade tool replaces the Bootstrap 3.x CSS.", user_id: @user.id)
 end
 
-puts "100 Posts has been created"
+puts "20 Posts has been created"
