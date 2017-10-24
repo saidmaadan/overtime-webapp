@@ -9,5 +9,8 @@
     <p><%= truncate(post.rationale, length: 80) %></p>
     <small><%= post.user.full_name %></small>
   </div>
+    <%= link_to "Edit", edit_post_path(post), class: "btn btn-outline-primary float-right" %>
+    <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure want to delete this post..."}, class: "btn btn-outline-danger float-right" %>
+
 </div>
 <hr>

@@ -11,8 +11,8 @@
                     )
 puts "One user created"
 
-20.times do |post|
+2.times do |post|
   Post.create!(date: Date.today, rationale: "#{post} Given HTML markup, this upgrade tool replaces the Bootstrap 3.x CSS.", user_id: @user.id)
 end
 
-puts "20 Posts has been created"
+puts "10 Posts has been created"
