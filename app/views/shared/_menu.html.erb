@@ -12,11 +12,23 @@
         <a class="nav-link" href="#">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <%= link_to "Add Post", new_post_path, class: "nav-link" %>
       </li>
     </ul>
     <span class="navbar-text">
-      Navbar text with an inline element
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+        <% link_to "Admin Dashboard", root_path, class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", :'data-toggle'=> "dropdown", :"aria-haspopup"=> true, :"aria-expanded"=> false  %>
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Setting
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Setting", edit_user_registration_path, method: :delete, class: "dropdown-item" %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+      </ul>
     </span>
   </div>
 </nav>
