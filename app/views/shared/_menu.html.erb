@@ -15,20 +15,25 @@
         <%= link_to "Add Post", new_post_path, class: "nav-link" %>
       </li>
     </ul>
-    <span class="navbar-text">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-        <% link_to "Admin Dashboard", root_path, class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", :'data-toggle'=> "dropdown", :"aria-haspopup"=> true, :"aria-expanded"=> false  %>
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Setting
-        </a>
+    <% if current_user %>
+      <span class="navbar-text left-drop">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+          <%# link_to "Admin Dashboard", root_path, class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", :'data-toggle'=> "dropdown", :"aria-haspopup"=> true, :"aria-expanded"=> false  %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Setting", edit_user_registration_path, method: :delete, class: "dropdown-item" %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
-      </li>
-      </ul>
-    </span>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if current_user.try(:type) == 'AdminUser' %>
+              <%= link_to "Admin Dashboard", admin_root_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "Setting", edit_user_registration_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        </ul>
+      </span>
+    <% end %>
   </div>
 </nav>
