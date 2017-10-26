@@ -7,6 +7,10 @@
         <% end %>
       <% end %>
       <div class="form-gorup">
+        <%= f.label :overtime_request %>
+        <%= f.text_field :overtime_request, class: "form-control" %>
+      </div>
+      <div class="form-gorup">
         <%= f.label :date %>
         <%= f.date_field :date, class: "form-control" %>
       </div>
@@ -16,7 +20,7 @@
       </div>
 
       <%= render partial: 'status', locals: { f: f } if current_user.type == 'AdminUser' %>
-      
+
       <div class="form-gorup">
         <%= f.submit "Save", class: "btn btn-outline-success"%>
       </div>

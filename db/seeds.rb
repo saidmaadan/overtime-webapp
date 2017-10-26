@@ -14,8 +14,8 @@ puts "One user created"
 AdminUser.create(email: "admin@test.com", password: "password", password_confirmation: "password", first_name: 'Admin', last_name: 'User')
 
 puts "One Adminuser created"
-4.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} Given HTML markup, this upgrade tool replaces the Bootstrap 3.x CSS.", user_id: @user.id)
+6.times do |post|
+  Post.create!(date: Date.today, rationale: "#{post} This upgrade tool replaces the Bootstrap 3.x CSS.", user_id: @user.id, overtime_request: 2.5)
 end
 
 puts "4 Posts has been created"

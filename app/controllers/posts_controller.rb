@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.posts_by current_user
+    @posts = Post.all
   end
 
   def new
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:date, :rationale, :status)
+      params.require(:post).permit(:date, :rationale, :status, :overtime_request)
     end
 
     def set_post
