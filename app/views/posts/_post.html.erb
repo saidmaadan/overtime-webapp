@@ -1,16 +1,21 @@
 <div class="row">
-  <div class="col-md-1 col-sm-2">
+  <div class="col-md-1 col-sm-1 col-2">
     <%= post.id %>
   </div>
-  <div class="col-md-3 col-sm-4">
+  <div class="col-md-2 col-sm-3 col-5">
     <%= post.date %>
   </div>
-  <div class="col-md-8 col-sm-6">
+  <div class="col-md-2 col-sm-2 col-5">
+    <%= status_badge post.status %>
+  </div>
+  <div class="col-md-4 col-sm-6 col-7">
     <p><%= truncate(post.rationale, length: 80) %></p>
     <small><%= post.user.full_name %></small>
   </div>
+
+  <div class="col-md-3 col-12">
     <%= link_to "Edit", edit_post_path(post), class: "btn btn-outline-primary float-right" %>
     <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure want to delete this post..."}, class: "btn btn-outline-danger float-right" %>
-
+  </div>
 </div>
 <hr>

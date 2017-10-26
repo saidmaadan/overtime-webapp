@@ -48,7 +48,6 @@ class PostDashboard < Administrate::BaseDashboard
     :user,
     :date,
     :rationale,
-    :status,
   ].freeze
 
   # Overwrite this method to customize how posts are displayed
