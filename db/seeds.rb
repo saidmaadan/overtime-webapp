@@ -7,11 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 @user = User.create(email: "test@test.com", password:
                     "password", password_confirmation: "password",
-                    first_name: 'User', last_name: 'One'
+                    first_name: 'User', last_name: 'One',
+                    phone: "5128502194"
                     )
 puts "One user created"
 
-AdminUser.create(email: "admin@test.com", password: "password", password_confirmation: "password", first_name: 'Admin', last_name: 'User')
+AdminUser.create(email: "admin@test.com",
+                password: "password",
+                password_confirmation: "password",
+                first_name: 'Admin', last_name: 'User',
+                phone: "5128502194"
+                )
 
 puts "One Adminuser created"
 6.times do |post|
