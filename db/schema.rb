@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027183205) do
+ActiveRecord::Schema.define(version: 20171028155147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,21 @@ ActiveRecord::Schema.define(version: 20171027183205) do
   create_table "audit_logs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "status",     default: 0
-    t.date     "start_data"
+    t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_audit_logs_on_user_id", using: :btree
+  end
+
+  create_table "auditing_logs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "status",     default: 0
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_auditing_logs_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -58,5 +68,6 @@ ActiveRecord::Schema.define(version: 20171027183205) do
   end
 
   add_foreign_key "audit_logs", "users"
+  add_foreign_key "auditing_logs", "users"
   add_foreign_key "posts", "users"
 end

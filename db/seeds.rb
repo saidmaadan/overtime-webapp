@@ -20,8 +20,14 @@ AdminUser.create(email: "admin@test.com",
                 )
 
 puts "One Adminuser created"
-6.times do |post|
+8.times do |post|
   Post.create!(date: Date.today, rationale: "#{post} This upgrade tool replaces the Bootstrap 3.x CSS.", user_id: @user.id, overtime_request: 2.5)
 end
 
-puts "4 Posts has been created"
+puts "8 Posts has been created"
+
+8.times do |audit_log|
+  AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
+end
+
+puts "8 AuditLog has been created"
